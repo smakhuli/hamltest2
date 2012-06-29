@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @student.name
+%p
+  %b Year:
+  = @student.year
+%p
+  %b Sex:
+  = @student.sex
+%p
+  %b Country:
+  = @student.country
+%p
+  %b Tuition paid:
+  = @student.tuition_paid
+%p
+  %b Tuition due:
+  = @student.tuition_due
+
+= link_to 'Edit', edit_student_path(@student)
+\|
+= link_to 'Back', students_path

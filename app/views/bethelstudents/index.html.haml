@@ -1,0 +1,29 @@
+%h1 Bethel Students
+
+%table
+  %tr
+    %th Name
+    %th Year
+    %th Sex
+    %th Country
+    %th Tuition paid
+    %th Tuition due
+    %th
+    %th
+    %th
+
+  - @bethelstudents.each do |bethelstudent|
+    %tr
+      %td= bethelstudent.name
+      %td= bethelstudent.year
+      %td= bethelstudent.sex
+      %td= bethelstudent.country
+      %td= bethelstudent.tuition_paid
+      %td= bethelstudent.tuition_due
+      %td= link_to 'Show', bethelstudent
+      %td= link_to 'Edit', edit_bethelstudent_path(bethelstudent)
+      %td= link_to 'Destroy', bethelstudent, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Bethelstudent', new_bethelstudent_path

@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %title My First HAML Web App
+    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", :cache => true
+    = csrf_meta_tag
+  %body
+    #container
+      #header
+        %h1
+          %a{:href => "/"} My First HAML Web App
+        #user-navigation
+          %ul.wat-cf
+            %li
+              %a{:href => "http://haml.info/tutorial.html"}= t("web-app-theme.profile", :default => "Haml Tutorial")
+            %li
+              %a{:href => "http://rubygems.org/gems/sass-rails"}= t("web-app-theme.settings", :default => "Sass-rails")
+            %li
+              %a.logout{:href => "http://rubysource.com/using-coffeescript-in-rails/"}= t("web-app-theme.logout", :default => "Coffeescript")
+        #main-navigation
+          %ul.wat-cf
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              %p
+                Copyright &copy; #{Time.now.year} My First Haml Web App.
+        #sidebar
+          = yield :sidebar

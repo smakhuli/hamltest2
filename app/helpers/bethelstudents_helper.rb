@@ -1,0 +1,2 @@
+module BethelstudentsHelper
+end
